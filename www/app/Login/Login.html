@@ -1,0 +1,17 @@
+<ion-view>
+  <ion-content id="login">
+    <div class="list list-inset" style="margin-top: 45%">
+      <label class="item item-input">
+        <input type="email" placeholder="email" ng-model="user.email">
+      </label>
+
+      <label class="item item-input" style="margin-top: 20px">
+        <input type="password" placeholder="Password" ng-model="user.password">
+      </label>
+    </div>
+
+    <div style="text-align: center">
+      <button class="button button-outline button-positive" ng-click="Login(user)">Login <i class="icon ion-arrow-right-b"></i></button>
+    </div>
+  </ion-content>
+</ion-view>

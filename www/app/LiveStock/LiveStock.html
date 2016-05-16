@@ -1,0 +1,56 @@
+<ion-view>
+  <ion-nav-title>Market Stock</ion-nav-title>
+  <div class="bar bar-subheader bar-light has-header item-input-inset">
+    <label class="item-input-wrapper">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="search" ng-model="search" placeholder="Seach by Symbol" ng-change="searchcounter(search)">
+    </label><button class="button button-small icon ion-search "></button>
+  </div>
+  <ion-content class="has-subheader">
+    <ion-list class="">
+      <ion-item ng-repeat="resource in resources" class="item item-icon-right">
+        <div class="row">
+          <div class="col-50">
+            <h2>{{resource.resource.fields.name}}</h2>
+          </div>
+          <div class="col-20">
+            <p><strong ng-class="(resource.resource.fields.chg_percent < 0 ? 'assertive':'balanced')">{{resource.resource.fields.chg_percent | number:2}} %</strong></p>
+          </div>
+          <div class="col"><p>{{resource.resource.fields.utctime | date:'MM/dd/yyyy hh:mm:ss'}}</p></div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <!--<div ng-class="(conversation.read ? 'read' : 'unread') + ' ' + (conversation.incoming ? 'in' : 'out')"></div>-->
+            <p>Synbol : <strong>{{resource.resource.fields.symbol}}</strong></p>
+
+          </div>
+
+          <div class="col"><p>Price : <strong>{{resource.resource.fields.price | number:4}}</strong></p></div>
+          <div class="col-10 pull-right"><button class="button button-icon icon ion-heart royal" ng-click="addtoFavirate(resource)"></button></div>
+        </div>
+        <div class="row">
+
+        </div>
+        <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+        <div class="row">
+          <div class="col">
+            <p>Day_high : <strong>{{resource.resource.fields.day_high}}</strong></p>
+          </div>
+          <div class="col">
+            <p>Day_low : <strong>{{resource.resource.fields.day_low}}</strong></p>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col">
+            <p>Year_high : <strong>{{resource.resource.fields.year_high}}</strong></p>
+          </div>
+          <div class="col">
+            <p>Year_low : <strong>{{resource.resource.fields.year_low}}</strong></p>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>
